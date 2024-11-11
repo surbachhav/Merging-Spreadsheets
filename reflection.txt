@@ -1,0 +1,47 @@
+# Assignment 3 reflection
+
+## Submitter metadata
+
+Partner 1: Surabhi Bachhav (sb2673)
+Partner 2: Venya Sharma (vs529)
+
+Hours spent working on this assignment: 15.0
+
+## Verification questions
+
+1. Run your `CsvJoin` application with program arguments so that it attempts to join
+   `tests/testCsvToList/non-rectangular.csv` (on the left) with `tests/testCsvToList/empty-col.csv`
+   (on the right).  What **red text** does your program print to IntelliJ's console?
+   (as a reminder, it had better not include a stack trace)
+
+   Answer: Error: Input tables are not rectangular.
+
+## Reflection questions
+
+1. Which `LinkedSeq` operation did you think was the most difficult to implement and debug?  What
+   corner case caught you by surprise or was particularly awkward to handle?  Finally, describe a
+   testing scenario that you added which covers this corner case.
+
+   Answer: The equals method was difficult to implement as we were getting an error when two null
+   LinkedSeq were being compared. We were originally returning false because we didn't check for this
+   possibility in our method. By adding the code (shown below), we were able to properly handle
+   this scenario and return true because these lists are the same:
+
+   else if (currNodeThis == null && currNodeOther == null){
+               return true;
+   }
+
+   We then checked this with the following test:
+           listOne = makeList0();
+           listTwo = makeList0();
+           assertTrue(listOne.equals(listTwo));
+
+   This corner case then passed.
+
+2. How did you plan and budget your time so that you could complete and debug your application by
+   the deadline?  If you worked as partners, how did you coordinate to ensure in advance that you
+   would have sufficient time to work on the project together?
+
+   Answer: We came up with a schedule on when exactly to meet each day in advanced because we had very
+   busy schedules and are working around prelims. We worked on everything together by
+   first coding up our own solutions, comparing, and then troubleshooting.
